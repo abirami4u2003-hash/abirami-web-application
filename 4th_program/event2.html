@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Like Counter</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f5f5f5;
+            padding: 50px;
+        }
+
+        h2 {
+            color: navy;
+        }
+
+        h1 {
+            color: blue;
+            font-size: 50px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            border: none;
+            background-color: navy;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Dynamic Like Counter</h2>
+
+<h1 id="likes">0</h1>
+
+<button onclick="like()">Like</button>
+<button onclick="unlike()">Unlike</button>
+<button onclick="resetLikes()">Reset</button>
+
+<script>
+
+let likes = 0;
+
+function like() {
+    likes++;
+    document.getElementById("likes").innerHTML = likes;
+}
+
+function unlike() {
+    likes--;
+    document.getElementById("likes").innerHTML = likes;
+}
+
+function resetLikes() {
+    likes = 0;
+    document.getElementById("likes").innerHTML = likes;
+}
+
+</script>
+
+</body>
+</html>

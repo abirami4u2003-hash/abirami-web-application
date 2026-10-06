@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>React Name Application</title>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f5f9;
+}
+
+.app {
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: #2563eb;
+}
+
+.card {
+    background: white;
+    width: 350px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+input {
+    padding: 10px;
+    width: 220px;
+    margin: 10px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+.result {
+    font-size: 22px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+function NameApp() {
+
+    const [name, setName] = React.useState("");
+
+    return (
+        <div className="card">
+
+            <h2>Name Application</h2>
+
+            <input
+                type="text"
+                placeholder="Enter your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+            />
+
+            <p className="result">
+                Hello {name}
+            </p>
+
+        </div>
+    );
+}
+
+function App() {
+
+    return (
+        <div className="app">
+
+            <h1>React Functional Component</h1>
+
+            <p>Example using JSX and useState</p>
+
+            <NameApp />
+
+        </div>
+    );
+}
+
+const root = ReactDOM.createRoot(
+    document.getElementById("root")
+);
+
+root.render(<App />);
+
+</script>
+
+</body>
+</html>

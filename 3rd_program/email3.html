@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #fff0f5;
+            text-align: center;
+            padding: 40px;
+        }
+
+        form {
+            background-color: white;
+            width: 320px;
+            margin: auto;
+            padding: 25px;
+            border: 2px solid purple;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 25px;
+            background-color: purple;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Registration Form</h2>
+
+<form onsubmit="return checkForm()">
+
+    Email:
+    <input type="text" id="email">
+    <br>
+
+    Password:
+    <input type="password" id="password">
+    <br>
+
+    Confirm Password:
+    <input type="password" id="confirm">
+    <br>
+
+    <button type="submit">Register</button>
+
+</form>
+
+<p id="result"></p>
+
+<script>
+function checkForm() {
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let confirm = document.getElementById("confirm").value;
+    let result = document.getElementById("result");
+
+    if (email == "" || password == "" || confirm == "") {
+        result.innerHTML = "Please fill all fields";
+        result.style.color = "red";
+        return false;
+    }
+
+    if (!email.includes("@")) {
+        result.innerHTML = "Invalid email address";
+        result.style.color = "red";
+        return false;
+    }
+
+    if (password.length < 6) {
+        result.innerHTML = "Password must be at least 6 characters";
+        result.style.color = "red";
+        return false;
+    }
+
+    if (password != confirm) {
+        result.innerHTML = "Passwords do not match";
+        result.style.color = "red";
+        return false;
+    }
+
+    result.innerHTML = "Registration successful!";
+    result.style.color = "green";
+
+    return false;
+}
+</script>
+
+</body>
+</html>

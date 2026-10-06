@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Strong Password Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e8f5e9;
+            text-align: center;
+            padding: 50px;
+        }
+
+        form {
+            background-color: white;
+            width: 320px;
+            margin: auto;
+            padding: 25px;
+            border: 2px solid green;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 25px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Account Login</h2>
+
+<form onsubmit="return validateForm()">
+
+    Email:
+    <input type="text" id="email">
+    <br>
+
+    Password:
+    <input type="password" id="password">
+    <br>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+<p id="message"></p>
+
+<script>
+function validateForm() {
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let message = document.getElementById("message");
+
+    if (email == "" || password == "") {
+        message.innerHTML = "Fields cannot be empty";
+        message.style.color = "red";
+        return false;
+    }
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (!email.match(emailPattern)) {
+        message.innerHTML = "Enter a valid email address";
+        message.style.color = "red";
+        return false;
+    }
+
+    if (password.length < 8) {
+        message.innerHTML = "Password must contain 8 characters";
+        message.style.color = "red";
+        return false;
+    }
+
+    message.innerHTML = "Validation successful!";
+    message.style.color = "green";
+
+    return false;
+}
+</script>
+
+</body>
+</html>
